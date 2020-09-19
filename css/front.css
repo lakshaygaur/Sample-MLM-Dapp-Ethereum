@@ -1,0 +1,141 @@
+/**********************Index Page*******************/
+body{
+    background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,233,252,1) 100%);
+}
+#login_body{
+    text-align: center;
+    font-family: sans-serif;
+}
+header h1{
+    font-size: 100px;
+      border: 1px solid #3f51b54d;
+      padding: 30px;
+      height: 100px;
+      color: #fff;
+      font-weight: 500;
+      padding-left: 50px;
+      text-align: center;
+}
+#first{
+    font-size: 30px;
+      border: 1px solid #fff;
+      padding: 30px;
+      height: 300px;
+      color: #fff;
+      font-weight: 500;
+      padding-left: 50px;
+}
+
+#b1{
+     /*height: 80px;
+    width: 400px;*/
+    border: 1px solid #34ca73;
+    border-radius: 10px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+#b1:active{
+    transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+#b1{
+    background-color: #34ca73;
+  box-shadow: 0px 5px 0px 0px #15B358;
+}
+
+#b1:hover {
+  background-color: #48E68B;
+}
+#second{
+    font-size: 30px;
+      border: 1px solid #3f51b54d;
+      padding: 30px;
+      height: 300px;
+      color: #fff;
+      font-weight: 500;
+      padding-left: 50px;
+      text-align: center;
+}
+input{
+    margin: 20px;
+    height: 50px;
+    width: 400px;
+    background-color: #3f51b5;
+}
+  
+#b2{
+    height: 50px;
+    width: 400px;
+    border: 1px solid #55acee;
+    border-radius: 10px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+#b2{
+    background-color: #55acee;
+  box-shadow: 0px 5px 0px 0px #3C93D5;
+}
+#b2:hover{
+  background-color: #6FC6FF;
+}
+
+footer{
+   
+    font-size: 20px;
+    padding: 30px;
+    color: #fff;
+      font-weight: 500;
+}
+
+
+/**********************Dashboard Page*******************/
+.navbar{
+    float: right;
+}
+.buttons{
+    border: 1px solid #34ca73;
+    height: 20px;
+    border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 2px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+    background-color: blue;
+}
+
+li {
+    width: 200px;
+    display: block;
+color: white;
+    font-size: 20px;
+  text-align: center;
+  padding: 0;  
+  text-decoration: none;
+}
+aside{
+    column-width: 30px;
+    column-count: 2;
+    width: 200px;
+    
+}
+header aside{
+   /* float:right;*/
+}
+
