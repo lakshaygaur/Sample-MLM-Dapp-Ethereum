@@ -9,30 +9,45 @@ contract MLM {
     /**
      * Slot type to buy, and downline addresses
      */
-    struct slot {
-        address first ; // +50% to the user
-        address second ; // +50% to the user
-        address third ; // +50% to the user
-        address fourth ; // +100% to upline
-        address fifth ; // +100% to admin
+    struct Slot {
+        uint256 amount; // slot amount to be 800, 1600 or 3200
+        uint32 members;
+        // address first ; // +50% to the user
+        // address second ; // +50% to the user
+        // address third ; // +50% to the user
+        // address fourth ; // +100% to upline
+        // address fifth ; // +100% to admin
     }
     
-    uint256 number;
+
     address public owner;
+    
+    mapping(address => uint256) public users;
+    mapping(address => address[]) public downlines;
+    mapping(address => Slot) public slots;
 
     /**
-     * @dev Store value in variable
-     * @param num value to store
+     * Store value in variable
+     * num value to store
      */
-    function store(uint256 num) public {
-        number = num;
+    function buySlot(uint256 amount, address upline_addr) public {
+        
+        downlines[upline_addr].push(msg.sender); // set downline
+        
+        initSlot(amount); // check slot status
+
+        // update existing slot of the upline
+        Slot storage upline_slot = slots[upline_addr] ;
+        upline_slot.members ++ ;
+        if (upline_slot.members == 5 ) {
+            // reset slot ;
+        }
+    }
+    
+    function initSlot(uint256 amount) internal{
+        Slot memory slot ; 
+        slot.amount = amount ;
     }
 
-    /**
-     * @dev Return value 
-     * @return value of 'number'
-     */
-    function retrieve() public view returns (uint256){
-        return number;
-    }
+
 }
