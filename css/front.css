@@ -7,7 +7,7 @@ background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,233,252,1) 100
     text-align: center;
     font-family: sans-serif;
 }
-header h1{
+#login_body header h1{
     font-size: 100px;
       border: 1px solid #3f51b54d;
       padding: 30px;
@@ -119,23 +119,41 @@ footer{
   display: inline-block;
     background-color: blue;
 }
-
-li {
-    width: 200px;
-    display: block;
-color: white;
-    font-size: 20px;
-  text-align: center;
-  padding: 0;  
-  text-decoration: none;
+#dash-head{
+      border: 1px solid #3f51b54d;
+      height: 50px;
+      color: #fff;
 }
-aside{
-    column-width: 30px;
-    column-count: 2;
-    width: 200px;
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2px;
+  padding: 10px;
+    overflow: hidden;
+}
+.numbers1,.numbers3,.numbers5,.numbers7{
+    font-size: 40px;
+}
+.grid-container > div {
+  text-align: center;
+    color: white;
+  padding: 0 8px;
     
 }
-header aside{
-   /* float:right;*/
-}
 
+#aside1{
+    height: 200px;
+    width: 50%;
+    float:right;
+}
+.numbers2,.numbers4,.numbers6,.numbers8{
+    font-size: 25px;
+}
+article{
+    font-size:80px;
+    color: white;
+    float: left;
+    width: 50%;
+    
+}
