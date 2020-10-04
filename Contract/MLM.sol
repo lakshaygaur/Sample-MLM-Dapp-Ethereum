@@ -24,7 +24,7 @@ contract MLM {
     
     mapping(address => uint256) public users;
     mapping(address => address[]) public downlines;
-    mapping(address => Slot) public slots;
+    mapping(address => Slot[]) public slots;
 
     /**
      * Store value in variable
@@ -34,19 +34,25 @@ contract MLM {
         
         downlines[upline_addr].push(msg.sender); // set downline
         
-        initSlot(amount); // check slot status
-
+        initSlot(amount, msg.sender); // check slot status
+        
         // update existing slot of the upline
-        Slot storage upline_slot = slots[upline_addr] ;
+        Slot storage upline_slot = slots[upline_addr][slots[upline_addr].length - 1 ] ;
         upline_slot.members ++ ;
         if (upline_slot.members == 5 ) {
             // reset slot ;
+            
         }
     }
     
-    function initSlot(uint256 amount) internal{
+    function initSlot(uint256 amount, address myAddress) internal{
         Slot memory slot ; 
         slot.amount = amount ;
+        
+        // my_slot = initSlot(amount); // check slot status
+        Slot[] storage my_existing_slots = slots[msg.sender]  ;
+        my_existing_slots.push(slot) ;
+        slots[myAddress].push(my_existing_slots);
     }
 
 
