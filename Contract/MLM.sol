@@ -22,15 +22,23 @@ contract MLM {
 
     address public owner;
     
+    uint256 users_count;
+    
     mapping(address => uint256) public users;
     mapping(address => address[]) public downlines;
     mapping(address => Slot[]) public slots;
+
+    constructor() public {
+        owner = msg.sender ;
+        users_count ++; 
+        users[msg.sender] = users_count ;
+    }
 
     /**
      * Store value in variable
      * num value to store
      */
-    function buySlot(uint256 amount, address upline_addr) public {
+    function buySlot(uint256 amount, address payable upline_addr) public payable{
         
         downlines[upline_addr].push(msg.sender); // set downline
         
@@ -41,8 +49,9 @@ contract MLM {
         upline_slot.members ++ ;
         if (upline_slot.members == 5 ) {
             // reset slot ;
-            
+            initSlot(amount, upline_addr) ;
         }
+        upline_addr.transfer(amount);
     }
     
     function initSlot(uint256 amount, address myAddress) internal{
@@ -52,8 +61,16 @@ contract MLM {
         // my_slot = initSlot(amount); // check slot status
         Slot[] storage my_existing_slots = slots[msg.sender]  ;
         my_existing_slots.push(slot) ;
-        slots[myAddress].push(my_existing_slots);
+        slots[myAddress] = my_existing_slots;
     }
+    
+    receive()  external payable   {}
+     fallback()  external payable   {
+         log3(bytes32(msg.value),
+            bytes32(0),
+            bytes32(uint256(msg.sender)),
+            bytes32("_id"));
+     }
 
 
 }
